@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trimurti Watch & Opticals | Luxury Timepieces & Premium Eyewear</title>
+<meta name="description" content="Trimurti Watch & Opticals - Premium watches, luxury sunglasses, optical frames and smart watches in Medha, Satara.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C9A84C;
+  --gold-light:#E8C97A;
+  --gold-dark:#9A7A35;
+  --black:#0A0A0A;
+  --black-2:#111111;
+  --black-3:#1A1A1A;
+  --black-4:#222222;
+  --white:#FFFFFF;
+  --white-off:#F5F0E8;
+  --gray-light:#888;
+  --glass:rgba(255,255,255,0.05);
+  --glass-border:rgba(201,168,76,0.25);
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Poppins',sans-serif;overflow-x:hidden}
+::selection{background:var(--gold);color:var(--black)}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--black-2)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* LOADER */
+#loader{position:fixed;inset:0;background:var(--black);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px}
+.loader-logo{font-family:'Playfair Display',serif;font-size:28px;color:var(--gold);letter-spacing:4px;opacity:0;animation:fadeInUp 0.8s 0.3s forwards}
+.loader-bar{width:200px;height:1px;background:rgba(201,168,76,0.2);position:relative;overflow:hidden}
+.loader-bar::after{content:'';position:absolute;left:-100%;top:0;height:100%;width:100%;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:loaderSlide 1.5s 0.5s ease-in-out forwards}
+@keyframes loaderSlide{to{left:100%}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeOut{to{opacity:0;pointer-events:none;visibility:hidden}}
+#loader.hide{animation:fadeOut 0.5s 2s forwards}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 5%;display:flex;align-items:center;justify-content:space-between;transition:all 0.4s ease;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(10,10,10,0.95);backdrop-filter:blur(20px);border-bottom-color:var(--glass-border);padding:14px 5%}
+.nav-logo{display:flex;flex-direction:column;line-height:1}
+.nav-logo span:first-child{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);letter-spacing:2px;font-weight:700}
+.nav-logo span:last-child{font-size:9px;letter-spacing:4px;color:var(--gray-light);text-transform:uppercase;margin-top:2px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;transition:color 0.3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.nav-icons{display:flex;gap:20px;align-items:center}
+.nav-icons a{color:rgba(255,255,255,0.75);font-size:16px;transition:color 0.3s;text-decoration:none}
+.nav-icons a:hover{color:var(--gold)}
+.nav-icons .whatsapp{color:#25D366}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--white);transition:all 0.3s}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.98);backdrop-filter:blur(30px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:30px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:22px;font-family:'Playfair Display',serif;letter-spacing:2px;transition:color 0.3s}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-menu .close-btn{position:absolute;top:25px;right:25px;font-size:22px;cursor:pointer;color:var(--white)}
+
+/* HERO */
+#hero{height:100vh;position:relative;overflow:hidden}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease,transform 6s ease;transform:scale(1.08);background-size:cover;background-position:center}
+.hero-slide.active{opacity:1;transform:scale(1)}
+.hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.4) 50%,rgba(0,0,0,0.65) 100%)}
+.slide-1{background-image:url('https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=1600&q=80')}
+.slide-2{background-image:url('https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1600&q=80')}
+.slide-3{background-image:url('https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=1600&q=80')}
+.slide-4{background-image:url('https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1600&q=80')}
+.slide-5{background-image:url('https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=1600&q=80')}
+.hero-content{position:absolute;inset:0;z-index:10;display:flex;align-items:center;padding:0 5%}
+.hero-text{max-width:680px}
+.hero-tag{display:inline-block;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.4);padding:6px 18px;margin-bottom:24px;opacity:0;animation:heroFadeIn 0.8s 2.5s forwards}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(38px,5.5vw,72px);line-height:1.15;font-weight:700;opacity:0;animation:heroFadeIn 0.8s 2.8s forwards}
+.hero-title span{color:var(--gold);font-style:italic}
+.hero-sub{font-size:clamp(14px,1.5vw,17px);color:rgba(255,255,255,0.65);margin-top:18px;line-height:1.7;font-weight:300;opacity:0;animation:heroFadeIn 0.8s 3.1s forwards;letter-spacing:0.5px}
+.hero-btns{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;opacity:0;animation:heroFadeIn 0.8s 3.4s forwards}
+.btn-gold{background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-light));color:var(--black);padding:14px 32px;border:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;cursor:pointer;font-family:'Montserrat',sans-serif;text-decoration:none;transition:all 0.3s;position:relative;overflow:hidden}
+.btn-gold::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,0);transition:background 0.3s}
+.btn-gold:hover::after{background:rgba(255,255,255,0.15)}
+.btn-outline{background:transparent;color:var(--white);padding:13px 32px;border:1px solid rgba(255,255,255,0.4);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;cursor:pointer;font-family:'Montserrat',sans-serif;text-decoration:none;transition:all 0.3s}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+@keyframes heroFadeIn{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+.hero-dots{position:absolute;bottom:100px;left:5%;z-index:10;display:flex;gap:10px}
+.hero-dot{width:30px;height:2px;background:rgba(255,255,255,0.3);cursor:pointer;transition:all 0.3s}
+.hero-dot.active{width:60px;background:var(--gold)}
+.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:10;display:flex;flex-direction:column;align-items:center;gap:8px;animation:bounce 2s infinite}
+.scroll-indicator span{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.5)}
+.scroll-indicator .line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent)}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+
+/* SECTION COMMONS */
+section{padding:100px 5%}
+.section-tag{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,48px);line-height:1.2;font-weight:700}
+.section-title em{font-style:italic;color:var(--gold)}
+.section-sub{color:var(--gray-light);font-size:14px;line-height:1.8;margin-top:12px;font-weight:300;max-width:500px}
+.divider{width:60px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:20px 0}
+
+/* REVEAL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(40px);transition:all 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:all 0.7s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:all 0.7s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+/* BRANDS */
+#brands{background:var(--black-2);padding:60px 5%;overflow:hidden}
+.brands-track{display:flex;gap:60px;align-items:center;white-space:nowrap;animation:brandScroll 20s linear infinite}
+.brands-track:hover{animation-play-state:paused}
+.brand-item{font-family:'Montserrat',sans-serif;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.35);transition:color 0.3s;cursor:pointer;flex-shrink:0}
+.brand-item:hover{color:var(--gold)}
+@keyframes brandScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.brands-wrap{overflow:hidden}
+
+/* CATEGORIES */
+#categories{background:var(--black)}
+.categories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;margin-top:60px}
+.cat-card{position:relative;height:320px;overflow:hidden;cursor:pointer}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;filter:brightness(0.6)}
+.cat-card:hover img{transform:scale(1.1);filter:brightness(0.5)}
+.cat-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,transparent 60%)}
+.cat-info{position:absolute;bottom:0;left:0;right:0;padding:28px;z-index:1;transform:translateY(10px);transition:transform 0.4s}
+.cat-card:hover .cat-info{transform:translateY(0)}
+.cat-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:600}
+.cat-count{font-size:11px;letter-spacing:2px;color:var(--gold);margin-top:4px;opacity:0;transform:translateY(10px);transition:all 0.4s 0.1s}
+.cat-card:hover .cat-count{opacity:1;transform:translateY(0)}
+.cat-line{width:0;height:1px;background:var(--gold);margin-top:10px;transition:width 0.4s 0.1s}
+.cat-card:hover .cat-line{width:40px}
+
+/* PRODUCTS */
+#products{background:var(--black-3)}
+.products-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:50px;flex-wrap:gap}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.product-card{background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(10px);overflow:hidden;transition:all 0.4s;position:relative;cursor:pointer}
+.product-card:hover{transform:translateY(-8px);border-color:rgba(201,168,76,0.5);box-shadow:0 20px 60px rgba(201,168,76,0.1)}
+.product-img{position:relative;height:260px;overflow:hidden}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s}
+.product-card:hover .product-img img{transform:scale(1.08)}
+.product-badge{position:absolute;top:14px;left:14px;background:var(--gold);color:var(--black);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;font-weight:600}
+.product-quick{position:absolute;bottom:14px;right:14px;background:rgba(10,10,10,0.8);color:var(--white);border:1px solid rgba(255,255,255,0.2);padding:8px 14px;font-size:10px;letter-spacing:2px;text-transform:uppercase;opacity:0;transform:translateY(10px);transition:all 0.3s;cursor:pointer;font-family:'Poppins',sans-serif}
+.product-card:hover .product-quick{opacity:1;transform:translateY(0)}
+.product-info{padding:20px}
+.product-brand{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.product-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:600}
+.product-price{display:flex;align-items:center;gap:10px;margin-top:10px}
+.product-price .price{font-size:18px;font-weight:600;color:var(--gold);font-family:'Montserrat',sans-serif}
+.product-price .old-price{font-size:12px;color:var(--gray-light);text-decoration:line-through}
+.product-stars{display:flex;gap:3px;margin-top:6px}
+.product-stars i{color:var(--gold);font-size:10px}
+.product-action{display:flex;gap:10px;margin-top:14px}
+.btn-add{flex:1;background:transparent;border:1px solid rgba(201,168,76,0.4);color:var(--white);padding:9px;font-size:10px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:'Poppins',sans-serif;transition:all 0.3s}
+.btn-add:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}
+
+/* VIRTUAL TRY-ON */
+#virtual{background:var(--black);position:relative;overflow:hidden}
+#virtual::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,0.06) 0%,transparent 70%);pointer-events:none}
+.virtual-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.virtual-mockup{position:relative}
+.camera-frame{width:100%;max-width:380px;aspect-ratio:3/4;border:1px solid var(--glass-border);background:var(--glass);backdrop-filter:blur(10px);position:relative;overflow:hidden;margin:0 auto}
+.camera-frame::before{content:'';position:absolute;inset:20px;border:1px solid rgba(201,168,76,0.2);pointer-events:none}
+.scan-line{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:scan 3s linear infinite}
+@keyframes scan{from{top:0}to{top:100%}}
+.face-dots{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.face-circle{width:120px;height:140px;border:1px dashed rgba(201,168,76,0.4);border-radius:50%;position:relative;animation:pulse 2s infinite}
+.face-circle::before,.face-circle::after{content:'';position:absolute;width:6px;height:6px;background:var(--gold);border-radius:50%}
+.face-circle::before{top:30px;left:20px}
+.face-circle::after{top:30px;right:20px}
+@keyframes pulse{0%,100%{border-color:rgba(201,168,76,0.4)}50%{border-color:rgba(201,168,76,0.8)}}
+.ai-label{position:absolute;top:14px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.corner-tl,.corner-tr,.corner-bl,.corner-br{position:absolute;width:20px;height:20px}
+.corner-tl{top:0;left:0;border-top:2px solid var(--gold);border-left:2px solid var(--gold)}
+.corner-tr{top:0;right:0;border-top:2px solid var(--gold);border-right:2px solid var(--gold)}
+.corner-bl{bottom:0;left:0;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold)}
+.corner-br{bottom:0;right:0;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold)}
+.camera-preview-text{position:absolute;bottom:20px;width:100%;text-align:center;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,0.5);text-transform:uppercase}
+.frames-row{display:flex;gap:10px;justify-content:center;margin-top:16px}
+.frame-thumb{width:60px;height:30px;border:1px solid rgba(201,168,76,0.3);transition:all 0.3s;cursor:pointer;overflow:hidden}
+.frame-thumb:hover,.frame-thumb.active{border-color:var(--gold)}
+.frame-thumb img{width:100%;height:100%;object-fit:cover}
+
+/* BOOKING */
+#booking{background:var(--black-2)}
+.booking-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.booking-form{background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(20px);padding:50px 40px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.form-group input,.form-group select{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--white);padding:12px 16px;font-size:13px;font-family:'Poppins',sans-serif;outline:none;transition:border 0.3s}
+.form-group input:focus,.form-group select:focus{border-color:var(--gold)}
+.form-group select option{background:var(--black-3);color:var(--white)}
+.form-group input::placeholder{color:rgba(255,255,255,0.3)}
+.time-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
+.time-slot{padding:8px;border:1px solid rgba(255,255,255,0.1);text-align:center;font-size:11px;cursor:pointer;transition:all 0.3s}
+.time-slot:hover,.time-slot.active{border-color:var(--gold);color:var(--gold)}
+
+/* OFFERS */
+#offers{background:var(--black);position:relative;overflow:hidden}
+.offers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:50px}
+.offer-card{background:var(--glass);border:1px solid var(--glass-border);padding:36px 28px;position:relative;overflow:hidden;transition:all 0.4s;cursor:pointer}
+.offer-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light))}
+.offer-card:hover{transform:translateY(-5px);border-color:rgba(201,168,76,0.5);box-shadow:0 20px 40px rgba(201,168,76,0.1)}
+.offer-icon{font-size:32px;color:var(--gold);margin-bottom:20px}
+.offer-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:10px}
+.offer-desc{font-size:13px;color:var(--gray-light);line-height:1.7}
+.offer-tag{display:inline-block;margin-top:16px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.3);padding:4px 12px}
+
+/* REVIEWS */
+#reviews{background:var(--black-3);overflow:hidden}
+.reviews-track-wrap{margin-top:50px;overflow:hidden}
+.reviews-track{display:flex;gap:24px;animation:reviewScroll 25s linear infinite}
+.reviews-track:hover{animation-play-state:paused}
+.review-card{background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(10px);padding:32px;min-width:320px;flex-shrink:0}
+.review-stars{display:flex;gap:4px;margin-bottom:16px}
+.review-stars i{color:var(--gold);font-size:12px}
+.review-text{font-size:13px;color:rgba(255,255,255,0.75);line-height:1.8;font-style:italic;font-family:'Playfair Display',serif}
+.review-author{display:flex;align-items:center;gap:12px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08)}
+.review-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dark),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--black);flex-shrink:0}
+.review-name{font-size:13px;font-weight:600}
+.review-location{font-size:11px;color:var(--gray-light)}
+@keyframes reviewScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* GALLERY */
+#gallery{background:var(--black)}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,220px);gap:4px;margin-top:50px}
+.gallery-item{overflow:hidden;position:relative;cursor:pointer}
+.gallery-item:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s,filter 0.4s;filter:brightness(0.8)}
+.gallery-item:hover img{transform:scale(1.08);filter:brightness(0.6)}
+.gallery-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s;background:rgba(201,168,76,0.1)}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-overlay i{font-size:24px;color:var(--white)}
+
+/* LOCATION */
+#location{background:var(--black-2)}
+.location-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.map-container{width:100%;height:380px;border:1px solid var(--glass-border);overflow:hidden;position:relative}
+.map-container iframe{width:100%;height:100%;border:none;filter:grayscale(0.3) invert(0)}
+.location-card{background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(10px);padding:40px}
+.location-item{display:flex;gap:16px;margin-bottom:28px;align-items:flex-start}
+.location-icon{width:40px;height:40px;border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0;margin-top:2px}
+.location-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.location-val{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.6}
+.btn-whatsapp{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:var(--white);padding:14px 28px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;text-decoration:none;margin-top:10px;transition:opacity 0.3s;font-family:'Montserrat',sans-serif}
+.btn-whatsapp:hover{opacity:0.9}
+
+/* FOOTER */
+footer{background:var(--black-4);border-top:1px solid var(--glass-border);padding:70px 5% 30px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:50px;margin-bottom:50px}
+.footer-logo span:first-child{font-family:'Playfair Display',serif;font-size:22px;color:var(--gold);letter-spacing:2px}
+.footer-logo span:last-child{display:block;font-size:9px;letter-spacing:4px;color:var(--gray-light);margin-top:4px}
+.footer-desc{font-size:13px;color:var(--gray-light);line-height:1.8;margin-top:16px}
+.footer-social{display:flex;gap:12px;margin-top:20px}
+.footer-social a{width:36px;height:36px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:var(--gray-light);text-decoration:none;font-size:14px;transition:all 0.3s}
+.footer-social a:hover{border-color:var(--gold);color:var(--gold)}
+.footer-heading{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{color:var(--gray-light);text-decoration:none;font-size:13px;transition:color 0.3s;letter-spacing:0.5px}
+.footer-links a:hover{color:var(--gold)}
+.newsletter-input{display:flex;margin-top:14px}
+.newsletter-input input{flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--white);padding:11px 16px;font-size:12px;font-family:'Poppins',sans-serif;outline:none;border-right:none}
+.newsletter-input input::placeholder{color:rgba(255,255,255,0.3)}
+.newsletter-input button{background:var(--gold);border:none;color:var(--black);padding:11px 16px;cursor:pointer;font-size:14px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.3)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .virtual-inner,.booking-inner,.location-inner{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}
+  .gallery-item:nth-child(1){grid-column:span 2;grid-row:span 1}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  section{padding:70px 5%}
+  .form-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .gallery-item:nth-child(1){grid-column:span 2}
+  .hero-btns{flex-direction:column;width:fit-content}
+  .nav-icons .nav-search{display:none}
+}
+@media(max-width:480px){
+  .gallery-grid{grid-template-columns:1fr}
+  .gallery-item:nth-child(1){grid-column:span 1}
+  .time-slots{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">TRIMURTI</div>
+  <div class="loader-bar"></div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <span>Trimurti</span>
+    <span>Watch & Opticals</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#categories">Watches</a></li>
+    <li><a href="#categories">Opticals</a></li>
+    <li><a href="#products">Sunglasses</a></li>
+    <li><a href="#products">Smart Watches</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#offers">Offers</a></li>
+    <li><a href="#location">Contact</a></li>
+  </ul>
+  <div class="nav-icons">
+    <a href="#" class="nav-search"><i class="fas fa-search"></i></a>
+    <a href="https://wa.me/919082578461" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="#"><i class="fas fa-shopping-bag"></i></a>
+  </div>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="close-btn" id="closeMenu"><i class="fas fa-times"></i></span>
+  <a href="#hero" class="mobile-link">Home</a>
+  <a href="#categories" class="mobile-link">Watches</a>
+  <a href="#categories" class="mobile-link">Opticals</a>
+  <a href="#products" class="mobile-link">Sunglasses</a>
+  <a href="#products" class="mobile-link">Smart Watches</a>
+  <a href="#brands" class="mobile-link">Brands</a>
+  <a href="#offers" class="mobile-link">Offers</a>
+  <a href="#booking" class="mobile-link">Book Checkup</a>
+  <a href="#location" class="mobile-link">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-slide slide-1 active"></div>
+  <div class="hero-slide slide-2"></div>
+  <div class="hero-slide slide-3"></div>
+  <div class="hero-slide slide-4"></div>
+  <div class="hero-slide slide-5"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="hero-tag">Medha, Satara — Est. Premium Showroom</span>
+      <h1 class="hero-title" id="heroTitle">Timeless Style<br>For Every <em>Moment</em></h1>
+      <p class="hero-sub" id="heroSub">Luxury Watches & Premium Eyewear Under One Roof.<br>Discover curated collections of the world's finest timepieces and optical frames.</p>
+      <div class="hero-btns">
+        <a href="#categories" class="btn-gold">Explore Collection</a>
+        <a href="#booking" class="btn-outline">Book Eye Checkup</a>
+        <a href="#location" class="btn-outline">Visit Store</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots" id="heroDots">
+    <div class="hero-dot active" data-idx="0"></div>
+    <div class="hero-dot" data-idx="1"></div>
+    <div class="hero-dot" data-idx="2"></div>
+    <div class="hero-dot" data-idx="3"></div>
+    <div class="hero-dot" data-idx="4"></div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<div id="brands">
+  <div class="brands-wrap">
+    <div class="brands-track" id="brandsTrack">
+      <span class="brand-item">✦ Titan</span>
+      <span class="brand-item">✦ Fastrack</span>
+      <span class="brand-item">✦ Casio</span>
+      <span class="brand-item">✦ Ray-Ban</span>
+      <span class="brand-item">✦ Vincent Chase</span>
+      <span class="brand-item">✦ Fossil</span>
+      <span class="brand-item">✦ Tommy Hilfiger</span>
+      <span class="brand-item">✦ Oakley</span>
+      <span class="brand-item">✦ Carrera</span>
+      <span class="brand-item">✦ Vogue</span>
+      <span class="brand-item">✦ Titan</span>
+      <span class="brand-item">✦ Fastrack</span>
+      <span class="brand-item">✦ Casio</span>
+      <span class="brand-item">✦ Ray-Ban</span>
+      <span class="brand-item">✦ Vincent Chase</span>
+      <span class="brand-item">✦ Fossil</span>
+      <span class="brand-item">✦ Tommy Hilfiger</span>
+      <span class="brand-item">✦ Oakley</span>
+      <span class="brand-item">✦ Carrera</span>
+      <span class="brand-item">✦ Vogue</span>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="reveal">
+    <span class="section-tag">Shop By Category</span>
+    <h2 class="section-title">Curated <em>Collections</em></h2>
+    <div class="divider"></div>
+    <p class="section-sub">From precision timepieces to style-defining eyewear — explore every category crafted for the discerning.</p>
+  </div>
+  <div class="categories-grid" style="margin-top:50px">
+    <div class="cat-card reveal" style="transition-delay:0.1s">
+      <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=600&q=80" alt="Men's Watches">
+      <div class="cat-info">
+        <div class="cat-name">Men's Watches</div>
+        <div class="cat-count">50+ Styles</div>
+        <div class="cat-line"></div>
+      </div>
+    </div>
+    <div class="cat-card reveal" style="transition-delay:0.15s">
+      <img src="https://images.unsplash.com/photo-1548169874-53e85f753f1e?w=600&q=80" alt="Women's Watches">
+      <div class="cat-info">
+        <div class="cat-name">Women's Watches</div>
+        <div class="cat-count">40+ Styles</div>
+        <div class="cat-line"></div>
+      </div>
+    </div>
+    <div class="cat-card reveal" style="transition-delay:0.2s">
+      <img src="https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=600&q=80" alt="Smart Watches">
+      <div class="cat-info">
+        <div class="cat-name">Smart Watches</div>
+        <div class="cat-count">30+ Models</div>
+        <div class="cat-line"></div>
+      </div>
+    </div>
+    <div class="cat-card reveal" style="transition-delay:0.25s">
+      <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" alt="Sunglasses">
+      <div class="cat-info">
+        <div class="cat-name">Sunglasses</div>
+        <div class="cat-count">60+ Frames</div>
+        <div class="cat-line"></div>
+      </div>
+    </div>
+    <div class="cat-card reveal" style="transition-delay:0.3s">
+      <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&q=80" alt="Optical Frames">
+      <div class="cat-info">
+        <div class="cat-name">Optical Frames</div>
+        <div class="cat-count">80+ Frames</div>
+        <div class="cat-line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRENDING PRODUCTS -->
+<section id="products">
+  <div class="products-header reveal">
+    <div>
+      <span class="section-tag">Trending Now</span>
+      <h2 class="section-title">Our <em>Best Sellers</em></h2>
+      <div class="divider"></div>
+    </div>
+    <a href="#" class="btn-outline" style="padding:10px 24px;font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;white-space:nowrap">View All</a>
+  </div>
+  <div class="products-grid">
+    <div class="product-card reveal" style="transition-delay:0.1s">
+      <div class="product-img">
+        <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=500&q=80" alt="Titan Watch">
+        <span class="product-badge">New Arrival</span>
+        <button class="product-quick">Quick View</button>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">Titan</div>
+        <div class="product-name">Edge Automatic</div>
+        <div class="product-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <div class="product-price"><span class="price">₹8,499</span><span class="old-price">₹11,000</span></div>
+        <div class="product-action"><button class="btn-add">Add to Cart</button></div>
+      </div>
+    </div>
+    <div class="product-card reveal" style="transition-delay:0.15s">
+      <div class="product-img">
+        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500&q=80" alt="Ray-Ban">
+        <span class="product-badge">Best Seller</span>
+        <button class="product-quick">Quick View</button>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">Ray-Ban</div>
+        <div class="product-name">Classic Aviator</div>
+        <div class="product-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="product-price"><span class="price">₹6,200</span><span class="old-price">₹7,500</span></div>
+        <div class="product-action"><button class="btn-add">Add to Cart</button></div>
+      </div>
+    </div>
+    <div class="product-card reveal" style="transition-delay:0.2s">
+      <div class="product-img">
+        <img src="https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=500&q=80" alt="Smart Watch">
+        <span class="product-badge">Trending</span>
+        <button class="product-quick">Quick View</button>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">Fastrack</div>
+        <div class="product-name">Reflex Beat Pro</div>
+        <div class="product-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+        <div class="product-price"><span class="price">₹4,995</span><span class="old-price">₹6,499</span></div>
+        <div class="product-action"><button class="btn-add">Add to Cart</button></div>
+      </div>
+    </div>
+    <div class="product-card reveal" style="transition-delay:0.25s">
+      <div class="product-img">
+        <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=500&q=80" alt="Optical Frame">
+        <span class="product-badge">Premium</span>
+        <button class="product-quick">Quick View</button>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">Vincent Chase</div>
+        <div class="product-name">Blue Light Frame</div>
+        <div class="product-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <div class="product-price"><span class="price">₹1,899</span><span class="old-price">₹2,800</span></div>
+        <div class="product-action"><button class="btn-add">Add to Cart</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIRTUAL TRY-ON -->
+<section id="virtual">
+  <div class="virtual-inner">
+    <div class="reveal-left">
+      <span class="section-tag">Innovation</span>
+      <h2 class="section-title">Try Frames <em>Virtually</em></h2>
+      <div class="divider"></div>
+      <p class="section-sub">Experience the future of eyewear shopping. Our AI-powered virtual try-on lets you see how any frame looks on your face before you buy.</p>
+      <ul style="margin-top:28px;list-style:none;display:flex;flex-direction:column;gap:14px">
+        <li style="display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(255,255,255,0.7)">
+          <span style="width:24px;height:24px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:10px;flex-shrink:0"><i class="fas fa-check"></i></span>
+          Real-time AI face detection
+        </li>
+        <li style="display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(255,255,255,0.7)">
+          <span style="width:24px;height:24px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:10px;flex-shrink:0"><i class="fas fa-check"></i></span>
+          100+ frames available to try
+        </li>
+        <li style="display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(255,255,255,0.7)">
+          <span style="width:24px;height:24px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:10px;flex-shrink:0"><i class="fas fa-check"></i></span>
+          Share your look with friends
+        </li>
+      </ul>
+      <a href="#" class="btn-gold" style="display:inline-block;margin-top:32px;text-decoration:none">Try Now — It's Free</a>
+    </div>
+    <div class="reveal-right">
+      <div class="camera-frame">
+        <div class="corner-tl"></div>
+        <div class="corner-tr"></div>
+        <div class="corner-bl"></div>
+        <div class="corner-br"></div>
+        <div class="ai-label">AI Frame Detection Active</div>
+        <div class="scan-line"></div>
+        <div class="face-dots">
+          <div class="face-circle"></div>
+        </div>
+        <div class="camera-preview-text">Select a frame to try on</div>
+      </div>
+      <div class="frames-row">
+        <div class="frame-thumb active"><img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=120&q=70" alt="Frame 1"></div>
+        <div class="frame-thumb"><img src="https://images.unsplash.com/photo-1591375462262-0614aae93960?w=120&q=70" alt="Frame 2"></div>
+        <div class="frame-thumb"><img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=120&q=70" alt="Frame 3"></div>
+        <div class="frame-thumb"><img src="https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=120&q=70" alt="Frame 4"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="booking-inner">
+    <div class="reveal-left">
+      <span class="section-tag">Eye Care</span>
+      <h2 class="section-title">Book Free <em>Eye Checkup</em></h2>
+      <div class="divider"></div>
+      <p class="section-sub">Our certified optometrists provide comprehensive eye examination. Schedule your free consultation today.</p>
+      <div style="margin-top:36px;display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="width:40px;height:40px;border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0"><i class="fas fa-eye"></i></div>
+          <div><div style="font-size:14px;font-weight:600;margin-bottom:4px">Complete Eye Test</div><div style="font-size:13px;color:var(--gray-light)">Full refraction, vision acuity and eye health assessment</div></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="width:40px;height:40px;border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0"><i class="fas fa-user-md"></i></div>
+          <div><div style="font-size:14px;font-weight:600;margin-bottom:4px">Expert Consultation</div><div style="font-size:13px;color:var(--gray-light)">Personalized frame and lens recommendations</div></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="width:40px;height:40px;border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0"><i class="fas fa-certificate"></i></div>
+          <div><div style="font-size:14px;font-weight:600;margin-bottom:4px">Certified Optometrist</div><div style="font-size:13px;color:var(--gray-light)">Professional care at no cost to you</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <div class="booking-form">
+        <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:28px;color:var(--gold)">Schedule Appointment</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"></div>
+          <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Preferred Date</label><input type="date"></div>
+          <div class="form-group"><label>Checkup Type</label>
+            <select><option>Eye Vision Test</option><option>Contact Lens Fitting</option><option>Kids Eye Exam</option><option>Senior Eye Care</option></select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Select Time Slot</label>
+          <div class="time-slots">
+            <div class="time-slot active">10:00 AM</div>
+            <div class="time-slot">11:00 AM</div>
+            <div class="time-slot">12:00 PM</div>
+            <div class="time-slot">2:00 PM</div>
+            <div class="time-slot">3:00 PM</div>
+            <div class="time-slot">4:00 PM</div>
+          </div>
+        </div>
+        <button class="btn-gold" style="width:100%;padding:15px;border:none;cursor:pointer;margin-top:10px;font-size:12px;letter-spacing:3px">Book Free Eye Checkup</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERS -->
+<section id="offers">
+  <div class="reveal" style="text-align:center">
+    <span class="section-tag">Special Deals</span>
+    <h2 class="section-title">Exclusive <em>Offers</em></h2>
+    <div class="divider" style="margin:20px auto"></div>
+  </div>
+  <div class="offers-grid">
+    <div class="offer-card reveal" style="transition-delay:0.1s">
+      <div class="offer-icon"><i class="fas fa-gift"></i></div>
+      <div class="offer-title">Buy 1 Get 1 Free</div>
+      <div class="offer-desc">Purchase any optical frame and get a second frame absolutely free. Limited time offer.</div>
+      <span class="offer-tag">On Frames</span>
+    </div>
+    <div class="offer-card reveal" style="transition-delay:0.15s">
+      <div class="offer-icon"><i class="fas fa-star"></i></div>
+      <div class="offer-title">Festival Discount</div>
+      <div class="offer-desc">Celebrate with up to 30% off on premium watches and sunglasses this festive season.</div>
+      <span class="offer-tag">Up to 30% Off</span>
+    </div>
+    <div class="offer-card reveal" style="transition-delay:0.2s">
+      <div class="offer-icon"><i class="fas fa-graduation-cap"></i></div>
+      <div class="offer-title">Student Special</div>
+      <div class="offer-desc">Students get exclusive 15% discount on all eyewear. Show your ID to avail the offer.</div>
+      <span class="offer-tag">15% Off with ID</span>
+    </div>
+    <div class="offer-card reveal" style="transition-delay:0.25s">
+      <div class="offer-icon"><i class="fas fa-eye"></i></div>
+      <div class="offer-title">Free Eye Checkup</div>
+      <div class="offer-desc">Complimentary eye examination for every customer. No purchase required, walk in anytime.</div>
+      <span class="offer-tag">Always Free</span>
+    </div>
+    <div class="offer-card reveal" style="transition-delay:0.3s">
+      <div class="offer-icon"><i class="fas fa-watch"></i></div>
+      <div class="offer-title">Smart Watch Bundle</div>
+      <div class="offer-desc">Buy any smartwatch and get a free extra strap + screen protector worth ₹999.</div>
+      <span class="offer-tag">Free Accessories</span>
+    </div>
+    <div class="offer-card reveal" style="transition-delay:0.35s">
+      <div class="offer-icon"><i class="fas fa-exchange-alt"></i></div>
+      <div class="offer-title">Exchange Offer</div>
+      <div class="offer-desc">Exchange your old watch or frame and get up to ₹2000 off on your new purchase.</div>
+      <span class="offer-tag">Up to ₹2000 Off</span>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reveal" style="text-align:center">
+    <span class="section-tag">Client Stories</span>
+    <h2 class="section-title">What Our Customers <em>Say</em></h2>
+    <div class="divider" style="margin:20px auto"></div>
+  </div>
+  <div class="reviews-track-wrap">
+    <div class="reviews-track">
+      <div class="review-card">
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="review-text">"Absolutely stunning collection! Got my Titan watch and Ray-Ban sunglasses from here. The staff was incredibly knowledgeable and helpful."</div>
+        <div class="review-author"><div class="review-avatar">RK</div><div><div class="review-name">Rajesh Kumar</div><div class="review-location">Medha, Satara</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="review-text">"The free eye checkup service is exceptional. Found the perfect prescription glasses with the most stylish frames. Highly recommend!"</div>
+        <div class="review-author"><div class="review-avatar">PM</div><div><div class="review-name">Priya Marathe</div><div class="review-location">Wai, Satara</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <div class="review-text">"Best watch showroom in the area. Got a Fossil watch at a great price with the festive discount. Premium quality and great after-sales service."</div>
+        <div class="review-author"><div class="review-avatar">SS</div><div><div class="review-name">Suresh Shinde</div><div class="review-location">Panchgani</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="review-text">"Trimurti is my go-to place for all eyewear needs. The variety of optical frames is massive and the prices are very reasonable. Love this store!"</div>
+        <div class="review-author"><div class="review-avatar">AD</div><div><div class="review-name">Anita Desai</div><div class="review-location">Mahabaleshwar</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="review-text">"Bought a Casio G-Shock and premium sunglasses. Amazing deals on combos. The staff helped me pick the perfect pair. Five stars!"</div>
+        <div class="review-author"><div class="review-avatar">VK</div><div><div class="review-name">Vijay Kadam</div><div class="review-location">Satara City</div></div></div>
+      </div>
+      <!-- duplicate for seamless loop -->
+      <div class="review-card">
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="review-text">"Absolutely stunning collection! Got my Titan watch and Ray-Ban sunglasses from here. The staff was incredibly knowledgeable and helpful."</div>
+        <div class="review-author"><div class="review-avatar">RK</div><div><div class="review-name">Rajesh Kumar</div><div class="review-location">Medha, Satara</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="review-text">"The free eye checkup service is exceptional. Found the perfect prescription glasses with the most stylish frames. Highly recommend!"</div>
+        <div class="review-author"><div class="review-avatar">PM</div><div><div class="review-name">Priya Marathe</div><div class="review-location">Wai, Satara</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <div class="review-text">"Best watch showroom in the area. Got a Fossil watch at a great price with the festive discount. Premium quality and great after-sales service."</div>
+        <div class="review-author"><div class="review-avatar">SS</div><div><div class="review-name">Suresh Shinde</div><div class="review-location">Panchgani</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" style="padding-bottom:0">
+  <div class="reveal" style="text-align:center;padding-bottom:0">
+    <span class="section-tag">Our Gallery</span>
+    <h2 class="section-title">Style <em>Inspiration</em></h2>
+    <div class="divider" style="margin:20px auto"></div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal" style="transition-delay:0.1s">
+      <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=700&q=80" alt="Watch">
+      <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+    </div>
+    <div class="gallery-item reveal" style="transition-delay:0.15s">
+      <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&q=80" alt="Sunglasses">
+      <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+    </div>
+    <div class="gallery-item reveal" style="transition-delay:0.2s">
+      <img src="https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&q=80" alt="Smartwatch">
+      <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+    </div>
+    <div class="gallery-item reveal" style="transition-delay:0.25s">
+      <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400&q=80" alt="Optical">
+      <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+    </div>
+    <div class="gallery-item reveal" style="transition-delay:0.3s">
+      <img src="https://images.unsplash.com/photo-1548169874-53e85f753f1e?w=400&q=80" alt="Women Watch">
+      <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="reveal" style="text-align:center;margin-bottom:50px">
+    <span class="section-tag">Find Us</span>
+    <h2 class="section-title">Visit Our <em>Showroom</em></h2>
+    <div class="divider" style="margin:20px auto"></div>
+  </div>
+  <div class="location-inner">
+    <div class="reveal-left">
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3793.1!2d73.9!3d17.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMedha%2C+Satara%2C+Maharashtra!5e0!3m2!1sen!2sin!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <div class="location-card">
+        <h3 style="font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);margin-bottom:28px">Trimurti Watch & Opticals</h3>
+        <div class="location-item">
+          <div class="location-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <div class="location-label">Address</div>
+            <div class="location-val">Shrimant Tower, Opp. ST Depo<br>Medha, Dist. Satara<br>Maharashtra, India</div>
+          </div>
+        </div>
+        <div class="location-item">
+          <div class="location-icon"><i class="fas fa-phone-alt"></i></div>
+          <div>
+            <div class="location-label">Contact</div>
+            <div class="location-val"><a href="tel:+919082578461" style="color:inherit;text-decoration:none">+91 90825 78461</a></div>
+          </div>
+        </div>
+        <div class="location-item">
+          <div class="location-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <div class="location-label">Store Hours</div>
+            <div class="location-val">Mon – Sat: 9:30 AM – 9:00 PM<br>Sunday: 10:00 AM – 8:00 PM</div>
+          </div>
+        </div>
+        <a href="https://wa.me/919082578461" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">
+        <span>Trimurti</span>
+        <span>Watch & Opticals</span>
+      </div>
+      <p class="footer-desc">Premium watches, luxury sunglasses, optical frames and smart watches. Your one-stop destination for timeless style in Medha, Satara.</p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/919082578461" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#categories">Watches</a></li>
+        <li><a href="#categories">Opticals</a></li>
+        <li><a href="#products">Sunglasses</a></li>
+        <li><a href="#products">Smart Watches</a></li>
+        <li><a href="#offers">Offers</a></li>
+        <li><a href="#booking">Book Eye Checkup</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Brands</div>
+      <ul class="footer-links">
+        <li><a href="#">Titan</a></li>
+        <li><a href="#">Fastrack</a></li>
+        <li><a href="#">Casio</a></li>
+        <li><a href="#">Ray-Ban</a></li>
+        <li><a href="#">Vincent Chase</a></li>
+        <li><a href="#">Fossil</a></li>
+        <li><a href="#">Tommy Hilfiger</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Newsletter</div>
+      <p style="font-size:13px;color:var(--gray-light);line-height:1.7;margin-bottom:8px">Subscribe for exclusive offers and new arrivals.</p>
+      <div class="newsletter-input">
+        <input type="email" placeholder="Your email address">
+        <button><i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div style="margin-top:24px">
+        <div class="footer-heading">Contact</div>
+        <p style="font-size:13px;color:var(--gray-light);line-height:1.8">
+          Shrimant Tower, Opp. ST Depo<br>Medha, Dist. Satara<br>
+          <a href="tel:+919082578461" style="color:var(--gold);text-decoration:none">+91 90825 78461</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Trimurti Watch & Opticals. All rights reserved.</p>
+    <p>Crafted with <span style="color:var(--gold)">♦</span> in Medha, Satara</p>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/919082578461" target="_blank" style="position:fixed;bottom:30px;right:30px;z-index:999;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;color:white;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.3s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+// Loader
+window.addEventListener('load',()=>{
+  const loader=document.getElementById('loader');
+  setTimeout(()=>{loader.classList.add('hide')},2000);
+});
+
+// Navbar scroll
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>50){navbar.classList.add('scrolled')}
+  else{navbar.classList.remove('scrolled')}
+});
+
+// Mobile menu
+document.getElementById('hamburger').addEventListener('click',()=>{
+  document.getElementById('mobileMenu').classList.add('open');
+});
+document.getElementById('closeMenu').addEventListener('click',()=>{
+  document.getElementById('mobileMenu').classList.remove('open');
+});
+document.querySelectorAll('.mobile-link').forEach(link=>{
+  link.addEventListener('click',()=>document.getElementById('mobileMenu').classList.remove('open'));
+});
+
+// Hero slider
+const slides=document.querySelectorAll('.hero-slide');
+const dots=document.querySelectorAll('.hero-dot');
+const heroTitles=["Timeless Style<br>For Every <em>Moment</em>","See Better.<br><em>Look Better.</em>","Luxury Watches &<br>Premium <em>Eyewear</em>","Smart Watches For<br>The <em>Modern Soul</em>","Festival Offers<br>& <em>Combo Deals</em>"];
+const heroSubs=["Luxury Watches & Premium Eyewear Under One Roof.<br>Discover curated collections of the world's finest pieces.","Experience clarity like never before with our premium optical frames and prescription lenses.","From classic timepieces to contemporary designs — find your perfect style at Trimurti.","Cutting-edge smartwatches with health tracking, notifications and style in one device.","Exclusive festival discounts on watches, sunglasses, and optical frames. Don't miss out!"];
+let current=0;
+function goToSlide(n){
+  slides[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current=n;
+  slides[current].classList.add('active');
+  dots[current].classList.add('active');
+  document.getElementById('heroTitle').innerHTML=heroTitles[current];
+  document.getElementById('heroSub').innerHTML=heroSubs[current];
+}
+setInterval(()=>{goToSlide((current+1)%slides.length)},5000);
+dots.forEach(d=>{d.addEventListener('click',()=>goToSlide(parseInt(d.dataset.idx)))});
+
+// Reveal on scroll
+const reveals=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}});
+},{threshold:0.12});
+reveals.forEach(r=>observer.observe(r));
+
+// Time slot selection
+document.querySelectorAll('.time-slot').forEach(slot=>{
+  slot.addEventListener('click',()=>{
+    document.querySelectorAll('.time-slot').forEach(s=>s.classList.remove('active'));
+    slot.classList.add('active');
+  });
+});
+
+// Frame thumb selection
+document.querySelectorAll('.frame-thumb').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.frame-thumb').forEach(f=>f.classList.remove('active'));
+    t.classList.add('active');
+  });
+});
+
+// Add to cart feedback
+document.querySelectorAll('.btn-add').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const orig=btn.textContent;
+    btn.textContent='Added ✓';
+    btn.style.background='var(--gold)';
+    btn.style.borderColor='var(--gold)';
+    btn.style.color='var(--black)';
+    setTimeout(()=>{btn.textContent=orig;btn.style.background='';btn.style.borderColor='';btn.style.color=''},2000);
+  });
+});
+
+// Booking form submit
+document.querySelector('.booking-form .btn-gold').addEventListener('click',function(){
+  const orig=this.textContent;
+  this.textContent='Appointment Booked! ✓';
+  this.style.background='linear-gradient(135deg,#1a8a3a,#25cc55)';
+  setTimeout(()=>{this.textContent=orig;this.style.background=''},3000);
+});
+</script>
+</body>
+</html>
